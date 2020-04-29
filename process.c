@@ -86,6 +86,7 @@ void proc_wake(pid_t pid){
     param.sched_priority = 0;
     int ret = sched_setscheduler(pid, SCHED_OTHER, &param);
     if (ret < 0){
+        fprintf(stderr, "%d\n", pid);
         perror("proc_wake()");
         exit(-1);
     }

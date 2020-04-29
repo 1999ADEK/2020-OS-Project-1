@@ -13,6 +13,16 @@ typedef struct {
     int ready_t; // the time the process is ready
 } process;
 
+typedef struct node {
+    process *p;
+    struct node *next;
+} process_node;
+
+typedef struct{
+    process_node *head;
+    process_node *tail;
+} process_list;
+
 void unit_t();
 void proc_assign_cpu(pid_t pid, int cpu);
 pid_t proc_exec(process *p);

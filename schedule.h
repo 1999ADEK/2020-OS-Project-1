@@ -9,6 +9,8 @@
 #define TIME_QUAN 500
 
 int cmp(const void *a, const void *b);
-int sched_next(process *P, int num_p, int policy);
+void insert_to_list(process_list *queue, process_node *new, int policy);
+void remove_from_list(process_list *queue);
+process *sched_next(process_list *queue, int policy);
 void scheduler(process *P, int num_p, int policy);
 #endif
