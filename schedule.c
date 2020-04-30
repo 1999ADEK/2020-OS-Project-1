@@ -17,18 +17,12 @@ int last_t; // the last time at which context switch happens, used for RR policy
 
 // compare 2 processes based on ready time and execution time
 // so that process with earlier ready time comes first in a list
-// if 2 processes have the same ready time, choose the one with
-// shorter execution time
 int cmp(const void *a, const void *b){
     process *p1 = (process *)a;
     process *p2 = (process *)b;
     if (p1->ready_t < p2->ready_t)
         return -1;
     else if (p1->ready_t > p2->ready_t)
-        return 1;
-    else if (p1->exec_t < p2->exec_t)
-        return -1;
-    else if (p1->exec_t > p2->exec_t)
         return 1;
     else
         return 0;
