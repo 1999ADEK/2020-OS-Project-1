@@ -1,5 +1,5 @@
-CFLAGS = -DDEBUG -Wall
-#CFLAGS = -Wall
+#CFLAGS = -DDEBUG -Wall
+CFLAGS = -Wall
 main: main.o schedule.o process.o
 	gcc $(CFLAGS) -o main main.o schedule.o process.o
 main.o: main.c

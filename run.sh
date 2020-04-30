@@ -1,5 +1,10 @@
 #!/bin/bash
 
+touch "output/TIME_MEASUREMENT_stdout.txt" "output/TIME_MEASUREMENT_dmesg.txt"
+sudo dmesg -c
+sudo stdbuf -oL ./main < "testset/TIME_MEASUREMENT.txt" > "output/TIME_MEASUREMENT_stdout.txt"
+dmesg | grep Project1 > "output/TIME_MEASUREMENT_dmesg.txt"
+
 for policy in FIFO PSJF RR SJF
 do
     for i in {1..5}
